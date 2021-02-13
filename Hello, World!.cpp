@@ -8,17 +8,21 @@ using namespace std;
 
 int main()
 {
+	vector<string> words;
+	for (string temp; cin >> temp;)
+		words.push_back(temp);
+	cout << "Number of words: " << words.size() << '\n';
+
+	sort(words.begin(), words.end());
+
+	string banned = "politics";
 	
-	// squaring without multiplication
-	// for loop
-	// add number in iterator number of times itself i.e. 2^2 = 2 + 2
-	
-	
-	int squarei = 5;
-	int squared = 0;
-	for (int i = 0; i < squarei; ++i) {
-		squared += squarei;
-		cout << "squared: " << squared << '\n';
+	for (int i = 0; i < words.size(); ++i) {
+		if (words[i] == banned) {
+			cout << "BEEP BANNED WORD!!! \n";
+		}
+		else if (i == 0 || words[i - 1] != words[i])
+			cout << words[i] << "\n";
 	}
 	
 	return 0;
